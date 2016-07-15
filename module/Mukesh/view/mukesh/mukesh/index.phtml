@@ -1,0 +1,47 @@
+<?php 
+
+$title = 'My Songs';
+$this->headTitle($title);
+?>
+
+
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+  <a href = "<?php echo $this->url('mukesh',array('action'=>'add'));?>">Add new song</a>
+</p>
+
+
+
+<table class = 'table'>
+
+ <tr>
+    <th>Song Name</th>
+    <th>Singer </th>
+    <th>&nbsp;</th>
+ </tr>
+ 
+ <?php foreach($song as $s)
+ {
+ 	
+ ?>
+ <tr>
+    <td><?php echo $this->escapeHtml($s->songName);?></td>
+   <td><?php echo $this->escapeHtml($s->singer);?></td>
+  <td>
+    <a href = "<?php echo $this->url('mukesh'
+    		,array('action' => 'edit','id'=> $s->id));?>">Edit</a>
+ </td>
+ </tr>
+ <?php 
+  }
+ ?>
+
+
+
+
+
+
+
+
+</table>

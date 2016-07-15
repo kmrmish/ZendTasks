@@ -1,0 +1,48 @@
+<?php
+/*
+ *@author : Ashwani Singh
+ *@date : 01-10-2013  
+ */
+ini_set("display_erros", "1");
+$title = 'Edit User';
+$this->headtitle($title);
+?>
+<h1> <?php echo $this->escapehtml($title)?></h1>
+<?php 
+$form = $this->form;
+$form->setAttribute('action',$this->url(
+		'admin', 
+		array(
+				'action' => 'edit',
+				'id' => $this->id,
+        )
+));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+
+echo $this->formhidden($form->get('id'));
+echo "<div id = 'formContainer'>";
+echo "<div id = 'formelements'>";
+echo $this->formrow($form->get('firstname'));
+echo "</div>";
+echo "<div id = 'formelements'>";
+echo $this->formrow($form->get('lastname'));
+echo "</div>";
+
+echo "<div id = 'formelements'>";
+echo $this->formrow($form->get('contact'));
+echo "</div>";
+echo "<div id = 'formelements'>";
+echo $this->formrow($form->get('gender'));
+
+echo "</div>";
+echo "<div id = 'formelements'>";
+echo $this->formsubmit($form->get('submit'));
+echo "</div>";
+echo "</div>";
+//echo $this->formcollection($form);
+echo $this->form()->closeTag();
+
+
+?>

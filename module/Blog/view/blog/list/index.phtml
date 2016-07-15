@@ -1,0 +1,16 @@
+<!-- Filename: /module/Blog/view/blog/list/index.phtml -->
+ <h1>Blog Posts</h1>
+<a href="<?php echo $this->url('blog/add'); ?>">Post Something From Here</a>
+ <?php foreach ($this->posts as $post){ ?>
+ <div id = 'blogPost'>
+     <div id ='headAndButton'>
+     <h2 id="post<?= $post->getId() ?>"><?= $post->getTitle() ?></h2>
+     <a href="<?php echo $this->url('blog/edit', array('id' => $post->getId()), true); ?>">Edit</a>
+     <a href="<?php echo $this->url('blog/delete', array('id' => $post->getId()), true); ?>">Delete</a>
+     </div>
+     <p>
+         <?= $post->getText() ?>
+     </p>
+     
+ </div>
+ <?php } ?>

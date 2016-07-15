@@ -1,0 +1,35 @@
+
+<?php
+
+$title = 'Welcome to the Chess';
+$this->headTitle($title);?>
+<h1><center><?php echo $this->escapeHtml($title);  ?></center></h1>
+  <hr>
+<div id="main_box">
+	<?php
+	$counter = 1;
+	$flag = 0;
+    $firstcss = 'whitebox';
+    $secondcss = 'blackbox';
+	for ($x=1; $x<=64; $x++) {
+      if($x % 8 == 1)
+      {
+        $temp = $firstcss;
+        $firstcss = $secondcss;
+        $secondcss = $temp;
+      }  
+	  ?>
+	  <div  id= "col<?php echo $x; ?>" class="<?php
+      if($x % 2 == 0 )
+        echo $firstcss;
+      else
+        echo $secondcss;
+       ?>">
+       
+	  </div>
+	  <?php
+      
+	}
+	?> 
+
+</div>

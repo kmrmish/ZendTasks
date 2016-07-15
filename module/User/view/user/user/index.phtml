@@ -1,0 +1,27 @@
+<?php
+
+$title = 'Login';
+$this->headTitle($title);
+?>
+    <h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$form->setAttribute('action', $this->url('login', array('action' => 'process')));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+
+echo $this->formRow($form->get('username'));
+echo "<br>";
+echo $this->formRow($form->get('password'));
+echo "<br>";
+echo $this->formRow($form->get('submit'));
+
+/*
+ * For rendering form in a single statement
+ * ---------------------------------------
+ * echo $this->formCollection($form);
+ *
+ */
+
+
+echo $this->form()->closeTag();

@@ -1,0 +1,66 @@
+#main_box
+{
+  border: 1px solid rgb(0, 0, 0);
+    float: left;
+    height: 562px;
+    margin-left: 300px;
+    margin-top: 60px;
+    width: 562px;
+}
+.small_box
+{
+  height: 70px;
+  width: 70px;
+  border: 1px solid red;
+  display: inline-table;
+}
+/*#col2{
+  background-color: red;
+}*/
+
+.whitebox{
+  height: 70px;
+  width: 70px;
+  border: 1px solid red;
+  float:left;
+  background: white;
+}
+
+.blackbox{
+  height: 70px;
+  width: 70px;
+  border: 1px solid red;
+  float:left;
+  background: black;
+}
+.pawn
+{
+  background: red;
+  background-image: url("images/pawn_white.png");
+}
+
+.selectedWhite{
+  height: 70px;
+  width: 70px;
+  border: 2px solid black;
+  float:left;
+  background: yellow;
+
+}
+
+.selectedBlack{
+   height: 70px;
+  width: 70px;
+  border: 2px solid black;
+  float:left;
+  background: blue;
+
+}
+
+.disabledWhite{
+  height: 70px;
+  width: 70px;
+  border: 1px solid red;
+  float:left;
+  background: white;
+}

@@ -1,0 +1,82 @@
+#main_box
+{
+  
+    float: left;
+    height: 560px;
+    margin-left: 300px;
+    margin-top: 5px;
+    width: 560px;
+   box-shadow: -1px -4px 20px 0 rgba(50, 50, 50, 0.75);
+}
+.small_box
+{
+  height: 70px;
+  width: 70px;
+  border: 1px solid red;
+  display: inline-table;
+}
+/*#col2{
+  background-color: red;
+}*/
+
+.whitebox{
+  height: 70px;
+  width: 70px;
+ 
+  float:left;
+  background: #ffefef;
+}
+
+.blackbox{
+  height: 70px;
+  width: 70px;
+ 
+  float:left;
+  background: #696969;
+}
+.pawn
+{
+  background: red;
+  background-image: url("images/pawn_white.png");
+}
+
+.selectedWhite{
+  height: 70px;
+  width: 70px;
+  border: 1px solid #4682B4;
+ box-shadow: -1px -4px 20px 0 rgba(24, 20, 255, 1);
+  float:left;
+  background: #eeeeee;
+
+}
+
+.selectedBlack{
+	border: 1px solid #191970;
+   height: 70px;
+  width: 70px;
+    
+  float:left;
+  background: #585858;
+ box-shadow: -1px -4px 20px 0 rgba(24, 20, 255, 1);
+
+}
+
+.selectPossibleMove{
+	 
+	border: 2px solid red;
+  border-radius: 5px;
+  
+ 
+}
+
+
+
+#loginDiv{
+  
+    height: 100px;
+    margin-left: 454px;
+    margin-top: 95px;
+    width: 220px;
+}
+
+

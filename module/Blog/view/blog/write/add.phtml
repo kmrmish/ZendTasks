@@ -1,0 +1,14 @@
+
+ <h1>Post Something</h1>
+ <?php
+ $form = $this->form;
+ $form->setAttribute('action', $this->url());
+ /* ZF2s form default method is POST. To change it use following line
+    $form->setAttribute('method', 'GET'); 
+  */
+ $form->prepare();
+ echo "<div class = 'addContainer'>";
+ echo "<div class = 'editCell'>".$this->form()->openTag($form)."</div>";
+ echo "<div class = 'editCell'>".$this->formCollection($form)."</div>";
+ echo "<div class = 'editCell'>".$this->form()->closeTag()."</div>";
+ echo "</div>";

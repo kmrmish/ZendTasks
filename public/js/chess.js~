@@ -1,0 +1,363 @@
+$(document).ready(function() {
+ 
+
+    $("#col1,#col8").html("<img id = 'imgcol1' src = '/img/rook_white.png'>");
+    $("#col2,#col7").html("<img id = 'imgcol1' src = '/img/knight_white.png'>");
+    $("#col3,#col6").html("<img id = 'imgcol1' src = '/img/bishop_white.png'>");
+    $("#col4").html("<img id = 'imgcol1' src = '/img/king_white.png'>");
+    $("#col5").html("<img id = 'imgcol1' src = '/img/queen_white.png'>");
+    
+    $("#col57,#col64").html("<img id = 'imgcol1' src = '/img/rook_black.png'>");
+    $("#col58,#col63").html("<img id = 'imgcol1' src = '/img/knight_black.png'>");
+    $("#col59,#col62").html("<img id = 'imgcol1' src = '/img/bishop_black.png'>");
+    $("#col61").html("<img id = 'imgcol1' src = '/img/queen_black.png'>");
+    $("#col60").html("<img id = 'imgcol1' src = '/img/king_black.png'>");
+
+    $("#col9,#col10,#col11,#col12,#col13,#col14,#col15,#col16").html("<img id = 'imgcol1' src = '/img/pawn_white.png'>");
+    $("#col49,#col50,#col51,#col52,#col53,#col54,#col55,#col56").html("<img id = 'imgcol1' src = '/img/pawn_black.png'>");
+ 
+  
+	 var selectedid = 'col';  //storing currently seleced box id...
+	 var selectedflag = 0;    //1 for selected 0 from deselected...
+	 var currentPossibleMoves = new Array();//storing all possible moves for current piece...
+	 
+	 
+	 //selecting, deselecting and moving the piece on blackbox
+	$(".whitebox").click(function(){
+		//selecting the box.................
+	     var id = this.id;
+	      var img = $("#"+id).html();
+	     var box = parseInt(id.substring(3));
+	      //moving the chess piece
+        if(selectedflag == 1 && selectedid != id)
+        {
+        	    var to = checkInCurrentPossibleMoves(box);
+        	    if(to)
+        	    {
+               moveChessPiece(id,selectedid);
+               hidePossibleMoves();
+              
+               selectedflag = 0;   
+               selectedid = 'col';  	
+            }
+        	}
+        	else
+        	{
+        		//selecting the box and showing all possible moves	     
+	        if(selectedflag == 0)
+	        {
+	        	var img = $("#"+id).html();
+	        	if(img.indexOf("img") > -1)
+	        	{
+	            $("#"+id).toggleClass("selectedWhite");
+	            selectedflag = 1;
+	            selectedid = id;
+               showPossibleMoves(id);
+             }
+         
+	        }
+	         //deselecting the box and hiding all possible moves
+	        else if(selectedid == id)
+	        {
+	      	$("#"+id).toggleClass("selectedWhite");
+	         selectedflag = 0;
+	         selectedid = 'col';
+	         hidePossibleMoves();
+	      	}
+	      } 
+	});
+
+
+//selecting, deselecting and moving the piece on blackbox
+	$(".blackbox").click(function(){
+	   var id = this.id
+	   var img = $("#"+id).html();
+      var box = id.substring(3);  //getting box number
+
+        //moving the chess piece
+        if(selectedflag == 1  && selectedid != id )
+        {
+        	    var to = checkInCurrentPossibleMoves(box);
+        	    if(to)
+        	    {
+               moveChessPiece(id,selectedid);
+               hidePossibleMoves();
+               $("#"+selectedid).removeClass("selectedBlack");     
+               selectedflag = 0;   
+               selectedid = 'col';  
+             }
+        	}	 	   
+	     else
+	     {
+	        //selecting the box and showing all possible moves
+	        if( selectedflag == 0)
+	        {
+	        	
+	        	if(img.indexOf("img") > -1)
+	        	{
+	           $("#"+id).toggleClass("selectedBlack");
+	           selectedflag = 1;
+	           selectedid = id;
+	           showPossibleMoves(id);
+	         }
+	        }
+	      //deselecting the box and hiding all possible moves
+	        else if(selectedid == id)
+	        {
+            $("#"+id).toggleClass("selectedBlack");
+	         selectedflag = 0;
+	         selectedid = 'col';
+	         hidePossibleMoves();
+	        }
+	    }
+	}); 
+ });  
+
+
+//getting the chess piece on selected box
+   function getChessPiece(img)
+   {
+   	if(img.search("pawn_white") != -1)
+   	{
+   	  return "pawn_white";	
+   	}
+   	else if(img.search("rook_white") != -1)
+   	{
+   		return "rook_white";
+   	} 
+   	else if(img.search("knight_white") != -1)
+   	{
+   		return "knight_white";
+   	}
+   	else if(img.search("bishop_white") != -1)
+   	{
+   		return "bishop_white";
+   	} 
+   	else if(img.search("king_white") != -1)
+   	{
+   		return "king_white";
+   	}  
+   	else if(img.search("queen_white") != -1)
+   	{
+   		return "queen_white";
+   	}
+   	else if(img.search("pawn_black") != -1)
+   	{
+   	  return "pawn_black";	
+   	}
+   	else if(img.search("rook_black") != -1)
+   	{
+   		return "rook_black";
+   	} 
+   	else if(img.search("knight_black") != -1)
+   	{
+   		return "knight_black";
+   	}
+   	else if(img.search("bishop_black") != -1)
+   	{
+   		return "bishop_black";
+   	} 
+   	else if(img.search("king_black") != -1)
+   	{
+   		return "king_black";
+   	}  
+   	else if(img.search("queen_black") != -1)
+   	{
+   		return "queen_black";
+   	}  
+   	
+   }
+    
+    
+   // showing all possible moves for selected piece
+   function showPossibleMoves( id)
+   {
+       	var img = $("#"+id).html();
+         var chessPiece = getChessPiece(img);
+         
+          if(chessPiece == "pawn_white" || chessPiece == "pawn_black")
+          {
+       	     currentPossibleMoves =  showPawnMoves(id,chessPiece);
+       	     
+       	     for(var i = 0 ; i < currentPossibleMoves.length; i++)
+              {
+           	      var tempid = "col"+currentPossibleMoves[i];
+       	         $("#"+tempid).addClass("selectPossibleMove");
+              }	
+       	 }
+       	 else if(chessPiece == "rook_white" || chessPiece == "rook_black")
+       	 {
+       	 	  currentPossibleMoves =  showRookMoves(id,chessPiece);
+       	 	 
+       	     for(var i = 0 ; i < currentPossibleMoves.length; i++)
+              {
+           	      var tempid = "col"+currentPossibleMoves[i];
+       	         $("#"+tempid).addClass("selectPossibleMove");
+              }
+       	 }
+          else if(chessPiece == "knight_white" || chessPiece == "knight_black")
+       	 {
+       	 	  currentPossibleMoves =  showKnightMoves(id,chessPiece);
+       	     /*for(var i = 0 ; i < currentPossibleMoves.length; i++)
+              {
+           	      var tempid = "col"+currentPossibleMoves[i];
+       	         $("#"+tempid).addClass("selectPossibleMove");
+              }*/
+       	 }
+       	 else if(chessPiece == "bishop_white" || chessPiece == "bishop_black")
+       	 {
+       	 	 currentPossibleMoves =  showBishopMoves(id,chessPiece);
+       	     /*for(var i = 0 ; i < currentPossibleMoves.length; i++)
+              {
+           	      var tempid = "col"+currentPossibleMoves[i];
+       	         $("#"+tempid).addClass("selectPossibleMove");
+              }*/
+       	 }
+       	 else if(chessPiece == "queen_white" || chessPiece == "queen_black")
+       	 {
+       	 	  currentPossibleMoves =  showQueenMoves(id,chessPiece);
+       	     /*for(var i = 0 ; i < currentPossibleMoves.length; i++)
+              {
+           	      var tempid = "col"+currentPossibleMoves[i];
+       	         $("#"+tempid).addClass("selectPossibleMove");
+              }*/
+       	 }
+       	 else if(chessPiece == "king_white" || chessPiece == "king_black")
+       	 {
+       	 	 currentPossibleMoves =  showKingMoves(id,chessPiece);
+       	     /*for(var i = 0 ; i < currentPossibleMoves.length; i++)
+              {
+           	      var tempid = "col"+currentPossibleMoves[i];
+       	         $("#"+tempid).addClass("selectPossibleMove");
+              }*/
+       	 }          	 
+       	 
+       	 
+   }
+   
+   
+   //checking whether the destination box is possible move or not....
+   function checkInCurrentPossibleMoves(box)
+   {
+   	
+      for(var i = 0 ; i < currentPossibleMoves.length; i++)
+      {
+           	if(box == currentPossibleMoves[i])
+           	   return true;
+      }	
+   	
+   }   
+   
+   
+   //deselecting all possible moves for currently selected chess piece
+   function hidePossibleMoves()
+   {
+   	
+      for(var i = 0 ; i < currentPossibleMoves.length; i++)
+      {
+           	var tempid = "col"+currentPossibleMoves[i];
+           	$("#"+tempid).removeClass("selectPossibleMove");
+      }	
+   }
+    
+   
+   
+   //finding all possible moves for a pown from a perticular box
+   function showPawnMoves(id,chessPiece)
+   {
+   	var Moves = new Array();
+   	if(chessPiece == "pawn_white")
+   	{
+   		var boxNumber = id.substring(3);
+   		
+   		//checking first move path
+   		var pathbox1 = parseInt(boxNumber) + 8;
+   		var temp = $("#col"+pathbox1).html();
+   		if(temp.search("img") == -1)
+   		  Moves[0] = parseInt(boxNumber) + 16;
+   		 
+   	}
+   	else if(chessPiece == "pawn_black")
+   	{
+   	  	var boxNumber = id.substring(3);
+   	  	
+   	  	//checking first move path
+   	  	var pathbox1 = parseInt(boxNumber) - 8;
+   		var temp = $("#col"+pathbox1).html();
+   		if(temp.search("img") == -1)
+   		Moves[0] = parseInt(boxNumber) - 16;
+   		
+   	}
+   	
+   	return Moves;
+   }
+   
+    //finding all possible moves for a rook from a perticular box
+   function showRookMoves(id,chessPiece)
+   {
+   	var Moves = new Array();
+   	if(chessPiece == "rook_white")
+   	{
+   		
+   		var boxNumber = id.substring(3);
+   		
+   		var flag = 0;
+   		var i = 1;
+   		
+   		for( i = parseInt(boxNumber)+8; i <=57; i = i+8)
+   		{
+   			
+   		   var temp = $("#col"+i).html();
+   		   if(temp.search("img") == -1)
+   		   {
+        		    Moves[flag] = i;
+        		    flag++;
+        		  
+        		}
+        		else if(temp.search("img") > -1)
+        		  return Moves;
+   	          
+   		}
+   		
+   	}
+   	
+   	return Moves;
+   }   
+   
+    //finding all possible moves for a knight from a perticular box
+   function showKnightMoves(id,chessPiece)
+   {
+   	alert("knight moves");	
+   }   
+   
+    //finding all possible moves for a bishop from a perticular box
+   function showBishopMoves(id,chessPiece)
+   {
+   	alert("bishop moves");	
+   }   
+   
+    //finding all possible moves for a queen from a perticular box
+   function showQueenMoves(id,chessPiece)
+   {
+   	alert("queen moves");	
+   }   
+   //finding all possible moves for a king from a perticular box
+   function showKingMoves(id,chessPiece)
+   {
+   	alert("king moves");	
+   }  
+   
+   
+   
+   
+   
+   //function to move chess piece from 'selectedid' box to 'id' box
+   function moveChessPiece(id,selectedid)
+   {
+   	
+        var img = $("#"+selectedid).html();
+        $("#"+selectedid).html('');
+        $("#"+id).html(img);
+        
+   }
+   

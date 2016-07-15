@@ -1,0 +1,32 @@
+<?php
+/*
+ *@author : Ashwani Singh
+ *@date : 30-09-2013  
+ */
+$title = 'Admin';
+$this->headTitle($title);
+
+
+//<!DOCTYPE HTML>
+?>
+
+<h1><?php echo $this->escapeHtml($title);  ?></h1>
+
+
+<table class="table">
+<tr>
+    <th>username</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($users as $user) : ?>
+<tr>
+    <td><?php  echo $this->escapehtml($user->username);?></td>
+    
+    <td>
+        <a href="<?php echo $this->url('admin',
+        		array('action' => 'edit', 'id' => $user->id));?>">Edit</a>
+        <a href="<?php echo $this->url('admin',
+        		array('action' => 'delete', 'id' => $user->id));?>">Delete</a>
+    </td>
+<?php endforeach;?>        				
+</table>

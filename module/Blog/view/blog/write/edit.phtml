@@ -1,0 +1,12 @@
+
+<h1>Edit Post</h1>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('blog/edit', array(), true));
+$form->prepare();
+echo "<div class = 'addContainer'>";
+$form->get('submit')->setValue('Update Post');
+echo "<div class = 'editCell'>" . $this->form()->openTag($form) . "</div>";
+echo "<div class = 'editCell'>" . $this->formCollection($form) . "</div>";
+echo "<div class = 'editCell'>" . $this->form()->closeTag() . "</div>";
+echo "</div>";

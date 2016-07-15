@@ -1,0 +1,55 @@
+#formContainer{
+	border: 1px solid;
+	width: 350px;
+	height: 400px;
+}
+
+#formelements{
+	background: #abcdef;
+    height: 31px;
+    margin-left: 5px;
+    margin-top: 3px;
+    width: 300px;
+}
+
+.editCell{
+    width: 20%;
+    margin-top: 1%;
+}
+
+.editCell span{
+    width: 100%;
+    float:left;
+    
+}
+
+.addContainer{
+        width: 34%;
+    padding: 5px;
+    margin-left: 32%;
+    background-color: #abcabc;
+}
+
+#blogPost{
+    width: 90%;
+    margin: 2px auto;
+    float:left;
+    background-color: #ffeedd;
+}
+
+#blogPost h1{
+    float:left;
+    
+}
+
+#headAndButton{
+    width: 164px;
+    height: 87px;
+    float: left;
+    padding-left: 2%;
+}
+#blogPost p{
+    padding-top: 3%;
+    margin-left: 14%;
+    padding-top: 3%;
+}

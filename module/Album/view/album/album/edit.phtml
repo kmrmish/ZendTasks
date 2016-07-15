@@ -1,0 +1,20 @@
+<?php
+ini_set("display_erros", "1");
+$title = 'Edit Album';
+$this->headtitle($title);
+$form = $this->form;
+$form->setAttribute('action', $this->url('album', array(
+            'action' => 'edit',
+            'id' => $this->id,
+)));
+$form->prepare();
+echo "<h1>" . $this->escapehtml($title) . "</h1>";
+echo $this->form()->openTag($form);
+echo "<div class = 'addContainer'>";
+echo $this->formhidden($form->get('id'));
+echo "<div class = 'editCell'>" . $this->formrow($form->get('title')) . "</div>";
+echo "<div class = 'editCell'>" . $this->formrow($form->get('artist')) . "</div>";
+echo "<div class = 'editCell'>" . $this->formsubmit($form->get('submit')) . "</div>";
+echo "</div>";
+echo $this->form()->closeTag();
+?>
