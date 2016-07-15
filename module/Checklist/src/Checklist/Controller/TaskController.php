@@ -18,7 +18,6 @@ class TaskController extends AbstractActionController
     public function indexAction()
     {
         $mapper = $this->getTaskMapper();
-        
         return new ViewModel(array(
             'tasks' => $mapper->fetchAll()
         ));
