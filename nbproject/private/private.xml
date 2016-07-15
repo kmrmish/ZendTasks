@@ -2,31 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/var/www/html/zend/skeleton-application/module/Album/autoload_classmap.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Service/PostServiceInterface.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Controller/WriteController.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/view/blog/list/detail.phtml</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Form/PostForm.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Model/PostInterface.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Service/PostService.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/config/autoload/global.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Factory/WriteControllerFactory.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/public/css/custom.css</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/Module.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/config/autoload/local.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Model/Post.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Mapper/PostMapperInterface.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/view/blog/list/index.phtml</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Mapper/ZendDbSqlMapper.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Factory/ZendDbSqlMapperFactory.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Form/PostFieldset.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Controller/ListController.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Factory/ListControllerFactory.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/config/module.config.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/src/Blog/Factory/PostServiceFactory.php</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/view/blog/write/add.phtml</file>
-            <file>file:/var/www/html/zend/skeleton-application/module/Blog/view/blog/write/edit.phtml</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
