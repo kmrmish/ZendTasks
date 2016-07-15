@@ -13,7 +13,7 @@ $this->headTitle($title);
         <th>Completed?</th>
         <th>&nbsp;</th>
     </tr>
-    <?php foreach ($tasks as $task): ?>
+    <?php foreach ($tasks as $task){ ?>
         <tr>
             <td>
                 <a href="task/edit/<?php echo $task->getId();?>">
@@ -25,5 +25,5 @@ $this->headTitle($title);
                 <a href="task/delete/<?php echo $task->getId();?>">Delete</a>
             </td>
         </tr>
-    <?php endforeach; ?>
+    <?php } ?>
 </table>
