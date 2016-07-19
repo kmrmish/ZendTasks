@@ -72,11 +72,8 @@ class Module
     		    },
     		    
     		  
-    		    'AppEmail' => function($sm) {
-    		        // getting application configuation 
+    		    'AppEmail' => function($sm) { 
     		        $appConfig = $sm->get('config');
-    		     //   \Zend\Debug\Debug::dump($appConfig);
-    		        
     		    	$transport = new SmtpTransport();
 				    $options = new SmtpOptions($appConfig['email_setting']);
 				    $transport->setOptions($options);

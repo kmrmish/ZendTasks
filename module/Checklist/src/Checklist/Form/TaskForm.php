@@ -1,9 +1,4 @@
 <?php
-/**
- *@author : Ashwani Singh
- *@date : 06-06-2014
- *@desc : Task Form class
- */
  namespace Checklist\Form;
 
  use Zend\Form\Form;

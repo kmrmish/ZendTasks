@@ -49,7 +49,20 @@
     padding-left: 2%;
 }
 #blogPost p{
+    margin-left: 0%;
     padding-top: 3%;
-    margin-left: 14%;
-    padding-top: 3%;
+    width: 76%;
+    float: left;
+}
+
+#headAndButton h2{
+    word-wrap:break-word;
+}
+
+.postTextAreas{
+    width: 76%;
+    float: left;
+}
+#textareadiv{
+    margin-top: 2%;
 }

@@ -1,3 +1,8 @@
+
+// A $( document ).ready() block.
+$( document ).ready(function() {
+     $(".postTextAreas").hide();
+});
 function addNewAlbum()
 {
 	$.ajax({
@@ -6,4 +11,10 @@ function addNewAlbum()
 			$("#formDiv").html(result);
 		}
 	});
+}
+
+function convertToEditable(id){
+    $("#para"+id).hide();
+    $("#paraTextArea"+id).show();
+    
 }

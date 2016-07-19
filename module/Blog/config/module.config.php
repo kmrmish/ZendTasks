@@ -22,6 +22,7 @@ return array(
              __DIR__ . '/../view',
          ),
      ),
+    
     'controllers' => array(
          'factories' => array(
              'Blog\Controller\List' => 'Blog\Factory\ListControllerFactory',
@@ -29,6 +30,7 @@ return array(
              'Blog\Controller\Delete' => 'Blog\Factory\DeleteControllerFactory'
          )
      ),
+    
     // This lines opens the configuration for the RouteManager
      'router'          => array(
          'routes' => array(

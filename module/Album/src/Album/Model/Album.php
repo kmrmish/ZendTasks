@@ -1,13 +1,4 @@
 <?php
-/*
- *@author : Ashwani Singh 
- *@date : 30-09-2013 
- *-----------------------------------------
- *        modified
- *-----------------------------------------
- *
- */
-
 namespace Album\Model;
 
 use Zend\InputFilter\InputFilter;
@@ -17,22 +8,18 @@ use Zend\InputFilter\InputFilterInterface;
 
 class Album implements InputFilterAwareInterface
 {
-	public $id;
-	public $artist;
-	public $title;
+    public $id;
+    public $artist;
+    public $title;
     protected $inputFilter;
 	
-	public function exchangeArray($data)
-	{
-		$this->id     = (!empty($data['id'])) ? $data['id'] : null;
-		$this->artist = (!empty($data['artist'])) ? $data['artist'] : null;
-		$this->title  = (!empty($data['title'])) ? $data['title'] : null;
+    public function exchangeArray($data)
+    {
+	$this->id     = (!empty($data['id'])) ? $data['id'] : null;
+	$this->artist = (!empty($data['artist'])) ? $data['artist'] : null;
+	$this->title  = (!empty($data['title'])) ? $data['title'] : null;
     }
-
-    
-    
-    
-    
+ 
     public function getArrayCopy()
     {
         return get_object_vars($this);

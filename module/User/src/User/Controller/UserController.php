@@ -21,8 +21,6 @@ class UserController extends AbstractActionController
 {
 	protected $userTable;
 	
-	
-	
 	public function registrationAction()
 	{
 		$form = new UserForm();
@@ -57,19 +55,6 @@ class UserController extends AbstractActionController
 		return array('form' => $form);
 	}
 	
-// 	public function adminAction()
-// 	{
-	    
-// 	    $view = new ViewModel(array(
-//             'users' => $this->getUserTable()->fetchAll(),
-//         ));
-// 	    $view->setTemplate('user/admin/admin.phtml');
-	    
-// 	    return $view;
-	    
-		
-// 	}
-	
 	public function getUserTable()
 	{
 		if(!$this->userTable){
@@ -78,9 +63,6 @@ class UserController extends AbstractActionController
 		}
 		return $this->userTable;
 	}
-	
-	
-	
 	
 	public  function sendTestEmailAction()
 	{
@@ -97,21 +79,10 @@ class UserController extends AbstractActionController
 	    
 	    // TO STOP RENDERING VIEW TEMPLATE
 	    $response = $this->getResponse();
-        $response->setStatusCode(200);
-        return $response; 
-	    
-	    
-	    
-	    
+            $response->setStatusCode(200);
+            return $response; 
 	    
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 }
 
